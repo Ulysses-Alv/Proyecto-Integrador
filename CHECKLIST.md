@@ -10,7 +10,7 @@
 ### 1.1 Sede CABA (172.29.0.0/23)
 - [ ] **Edificio Principal**
   - [ ] Router Core CABA (conectado a switches de piso)
-  - [ ] Router Borde CABA (conexión WAN a Jujuy y Catamarca)
+  - [ ] Router Borde CABA (conexión por FIBRA a Jujuy y Catamarca)
   - [ ] Switches de piso (uno por piso con departamentos)
   - [ ] PCs por departamento (configurados con IP estática o DHCP)
   - [ ] Access Points inalámbricos (configurados con SSID y WPA2)
