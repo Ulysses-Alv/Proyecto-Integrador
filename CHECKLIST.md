@@ -25,7 +25,7 @@
   - [ ] Printers
 
 - [ ] **Conexión entre edificios CABA**
-  - [ ] Fibra óptica configurada entre edificios
+  - [X] Fibra óptica configurada entre edificios
   - [ ] Interfaces de fibra configuradas en routers/switches
 
 ### 1.2 Sede Jujuy (172.29.2.0/24)
@@ -97,8 +97,8 @@
 - [] Verificar que las VLANs pasen por los trunks
 
 ### 3.3 Switches de Piso
-- [ ] Configurar switchport mode access en puertos de PCs
-- [ ] Configurar switchport access vlan [ID] en cada puerto
+- [X] Configurar switchport mode access en puertos de PCs
+- [X] Configurar switchport access vlan [ID] en cada puerto
 - [ ] Configurar puertos de Access Points
 - [ ] Configurar puertos de IP Phones
 - [ ] Configurar puertos de Printers
@@ -108,10 +108,10 @@
 ## FASE 4: CONFIGURACIÓN DE ROUTERS
 
 ### 4.1 Router Core CABA
-- [ ] Configurar subinterfaces para cada VLAN (router-on-a-stick)
-- [ ] Asignar IPs a subinterfaces (gateways de cada VLAN)
-- [ ] Configurar encapsulation dot1Q en cada subinterface
-- [ ] Habilitar interfaces (no shutdown)
+- [X] Configurar subinterfaces para cada VLAN (router-on-a-stick)
+- [X] Asignar IPs a subinterfaces (gateways de cada VLAN)
+- [X] Configurar encapsulation dot1Q en cada subinterface
+- [X] Habilitar interfaces (no shutdown)
 
 ### 4.2 Router Borde CABA
 - [ ] Configurar interfaz serial hacia Jujuy (10.200.0.1/30)
@@ -169,10 +169,10 @@
 ## FASE 6: NAT (Network Address Translation)
 
 ### 6.1 Configuración NAT en Router Borde CABA
-- [ ] Configurar interfaz inside (hacia red interna)
-- [ ] Configurar interfaz outside (hacia Internet)
-- [ ] Crear ACL para redes internas permitidas
-- [ ] Configurar NAT overload (PAT) con IP pública
+- [X] Configurar interfaz inside (hacia red interna)
+- [X] Configurar interfaz outside (hacia Internet)
+- [X] Crear ACL para redes internas permitidas
+- [X] Configurar NAT overload (PAT) con IP pública
 - [ ] Verificar traducción NAT
 
 ### 6.2 NAT en Routers de Sede (si aplica)
@@ -202,7 +202,9 @@
 - [ ] Configurar gateway y DNS
 
 ### 7.4 DHCP Relay (si es necesario)
-- [ ] Configurar ip helper-address en interfaces de router
+- [X] Configurar ip helper-address en interfaces de router CABA
+- [ ] Configurar ip helper-address en interfaces de router Jujuy
+- [ ] Configurar ip helper-address en interfaces de router Catamarca
 - [ ] Verificar que DHCP funcione entre VLANs
 
 ---

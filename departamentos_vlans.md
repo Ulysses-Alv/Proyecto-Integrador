@@ -1,6 +1,12 @@
 # Distribución de Departamentos y VLANs - HidroNova S.A.
 
 En esta tabla se detalla la segmentación de red para todas las sedes de la compañía, incluyendo la numeración de VLANs asignada para la sede principal de CABA y los segmentos únicos de las sedes de Jujuy y Catamarca.
+| VLAN ID | Nombre de VLAN |
+|---|---|
+| 10 | administracion |
+| 20 | logistica |
+| 30 | gerencia |
+| 40 | sistemas |
 
 | Sede | Piso | Departamento / Área | VLAN ID | Nombre de VLAN / Red |
 | :--- | :--- | :--- | :---: | :--- |
@@ -20,13 +26,3 @@ En esta tabla se detalla la segmentación de red para todas las sedes de la comp
 | **CABA** | 1º Piso | Sala de Reuniones | 30 | gerencia |
 | **CABA** | 1º Piso | SUM | 30 | gerencia |
 | **CABA** | 1º Piso | Atención al Público | 10 | administracion |
-| **Jujuy** | 2º Piso | Departamento de Administración | 60 | jujuy |
-| **Jujuy** | 2º Piso | Cuarto de Servidores y Conectividad | 60 | jujuy |
-| **Jujuy** | 1º Piso | Producción | 60 | jujuy |
-| **Jujuy** | 1º Piso | Logística y Transporte | 60 | jujuy |
-| **Jujuy** | 1º Piso | Departamento Comercial | 60 | jujuy |
-| **Catamarca** | 2º Piso | Producción | 50 | catamarca |
-| **Catamarca** | 2º Piso | Departamento Comercial | 50 | catamarca |
-| **Catamarca** | 2º Piso | Departamento de Administración | 50 | catamarca |
-| **Catamarca** | 2º Piso | Logística y Transporte | 50 | catamarca |
-| **Catamarca** | 2º Piso | Cuarto de Servidores y Conectividad | 50 | catamarca |
