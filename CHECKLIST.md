@@ -26,7 +26,7 @@
 
 - [ ] **Conexión entre edificios CABA**
   - [X] Fibra óptica configurada entre edificios
-  - [ ] Interfaces de fibra configuradas en routers/switches
+  - [X] Interfaces de fibra configuradas en routers/switches
 
 ### 1.2 Sede Jujuy (172.29.2.0/24)
 - [X] Router Borde Jujuy
@@ -66,21 +66,21 @@
 
 ### 2.2 Subneteo Jujuy
 
-- [ ] Subnets dentro de 172.29.2.0/24
+- [ ] Subnets dentro de 192.168.145.0/26
 
 ### 2.3 Subneteo Catamarca
 
-- [ ] Subnets dentro de 172.29.3.0/24
+- [ ] Subnets dentro de 192.168.145.64/26
 
 ### 2.4 Segmentos WAN
-- [ ] Serial CABA-Jujuy: 10.200.0.0/30
-- [ ] Serial CABA-Catamarca: 10.100.0.0/30
+- [ ] Serial CABA-Jujuy: 192.168.145.128/30 
+- [ ] Serial CABA-Catamarca: 192.168.145.132/30 
+- [ ] Serial Jujuy-Catamarca: 192.168.145.136/30
 - [ ] Serial Internet: 205.32.130.0/30
 
 ### 2.5 Segmentos de Servidores
 - [ ] Red de servidores CABA: 172.29.0.0/23
 - [ ] Red de servidores Jujuy
-- [ ] Red de servidores Catamarca
 
 ---
 
@@ -114,9 +114,8 @@
 - [X] Habilitar interfaces (no shutdown)
 
 ### 4.2 Router Borde CABA
-- [ ] Configurar interfaz serial hacia Jujuy (10.200.0.1/30)
-- [ ] Configurar interfaz serial hacia Catamarca (10.100.0.1/30)
-- [ ] Configurar interfaz hacia Router Core
+- [X] Configurar interfaz serial hacia Jujuy
+- [X] Configurar interfaz serial hacia Catamarca
 - [ ] Configurar interfaz hacia Internet (205.32.130.1/30)
 
 ### 4.3 Router Borde Jujuy
@@ -143,23 +142,17 @@
 - [ ] Ruta hacia red Catamarca (172.29.3.0/24) vía Router Borde CABA
 - [ ] Ruta por defecto hacia Internet vía Router Internet
 
-### 5.2 Rutas en Router Borde CABA
-- [ ] Rutas hacia todas las VLANs de CABA vía Router Core
-- [ ] Ruta hacia Jujuy vía interfaz serial
-- [ ] Ruta hacia Catamarca vía interfaz serial
-- [ ] Ruta hacia Internet vía Router Internet
-
-### 5.3 Rutas en Router Borde Jujuy
+### 5.2 Rutas en Router Borde Jujuy
 - [ ] Ruta hacia CABA (172.29.0.0/23) vía serial
 - [ ] Ruta hacia Catamarca vía CABA
 - [ ] Ruta por defecto hacia Internet vía CABA
 
-### 5.4 Rutas en Router Borde Catamarca
+### 5.3 Rutas en Router Borde Catamarca
 - [ ] Ruta hacia CABA (172.29.0.0/23) vía serial
 - [ ] Ruta hacia Jujuy vía CABA
 - [ ] Ruta por defecto hacia Internet vía CABA
 
-### 5.5 Rutas en Router Internet
+### 5.4 Rutas en Router Internet
 - [ ] Ruta hacia CABA (172.29.0.0/23)
 - [ ] Ruta hacia Jujuy (172.29.2.0/24)
 - [ ] Ruta hacia Catamarca (172.29.3.0/24)
