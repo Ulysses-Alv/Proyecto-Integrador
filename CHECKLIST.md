@@ -9,8 +9,7 @@
 
 ### 1.1 Sede CABA (172.29.0.0/23)
 - [ ] **Edificio Principal**
-  - [X] Router Core CABA (conectado a switches de piso)
-  - [X] Router Borde CABA (conexión por FIBRA a Jujuy y Catamarca)
+  - [X] Router CABA (conectado a switches de piso, enlaces de fibra a sedes y serial al ISP)
   - [X] Switches de piso (uno por piso con departamentos)
   - [ ] PCs por departamento (configurados con IP estática o DHCP)
   - [ ] Access Points inalámbricos (configurados con SSID y WPA2)
@@ -28,27 +27,27 @@
   - [X] Fibra óptica configurada entre edificios
   - [X] Interfaces de fibra configuradas en routers/switches
 
-### 1.2 Sede Jujuy (172.29.2.0/24)
-- [X] Router Borde Jujuy
+### 1.2 Sede Jujuy (192.168.145.0/26)
+- [X] Router Jujuy
 - [X] Switches de piso
 - [X] PCs por departamento
 - [X] Access Points inalámbricos
 - [X] IP Phones
 - [X] Printers
-- [X] Conexión WAN a CABA (serial)
+- [X] Conexión WAN a CABA (Fibra óptica Gigabit)
 
-### 1.3 Sede Catamarca (172.29.3.0/24)
-- [ ] Router Borde Catamarca
+### 1.3 Sede Catamarca (192.168.145.64/26)
+- [ ] Router Catamarca
 - [ ] Switches de piso
 - [ ] PCs por departamento
 - [ ] Access Points inalámbricos
 - [ ] IP Phones
 - [ ] Printers
-- [ ] Conexión WAN a CABA (serial)
+- [ ] Conexión WAN a CABA (Fibra óptica Gigabit)
 
 ### 1.4 Segmento Público / Internet
-- [ ] Router Internet (conexión a "ISP")
-- [ ] Interfaz serial hacia Internet (205.32.130.0/30)
+- [ ] Router Internet (ISP)
+- [ ] Interfaz serial hacia CABA (205.32.130.0/30)
 - [ ] Servidor que simula Google (IP: 64.223.190.94)
 - [ ] Switch Google
 - [ ] DNS Local Resolver Google (8.8.8.8)
@@ -62,25 +61,23 @@
 - [X] VLAN 10: Administración
 - [X] VLAN 20: Logistica
 - [X] VLAN 30: Gerencia
-- [X] VLAN 40: Sistemas
+- [X] VLAN 40: Sistemas y Centro de Datos
 
-### 2.2 Subneteo Jujuy
+### 2.2 Direccionamiento Jujuy (Único segmento plano)
+- [ ] Configurar red local Jujuy: 192.168.145.0/26 (32 puestos + servidores + APs/Printers)
 
-- [ ] Subnets dentro de 192.168.145.0/26
+### 2.3 Direccionamiento Catamarca (Único segmento plano)
+- [ ] Configurar red local Catamarca: 192.168.145.64/26 (20 puestos + servidores + APs/Printers)
 
-### 2.3 Subneteo Catamarca
+### 2.4 Segmentos WAN (Interconexión de routers)
+- [ ] WAN Fibra CABA-Jujuy: 192.168.145.128/30
+- [ ] WAN Fibra CABA-Catamarca: 192.168.145.132/30
+- [ ] WAN Fibra Jujuy-Catamarca: 192.168.145.136/30
+- [ ] WAN Serial CABA-Internet: 205.32.130.0/30
 
-- [ ] Subnets dentro de 192.168.145.64/26
-
-### 2.4 Segmentos WAN
-- [ ] Serial CABA-Jujuy: 192.168.145.128/30 
-- [ ] Serial CABA-Catamarca: 192.168.145.132/30 
-- [ ] Serial Jujuy-Catamarca: 192.168.145.136/30
-- [ ] Serial Internet: 205.32.130.0/30
-
-### 2.5 Segmentos de Servidores
-- [ ] Red de servidores CABA: 172.29.0.0/23
-- [ ] Red de servidores Jujuy
+### 2.5 Segmentación de Servidores
+- [ ] Servidores CABA (VLAN 40): Subred 172.29.0.0/24
+- [ ] Servidores Jujuy (Locales): IPs asignadas dentro del rango 192.168.145.0/26 (ej: DNS Logística, Web Logística)
 
 ---
 
@@ -107,196 +104,172 @@
 
 ## FASE 4: CONFIGURACIÓN DE ROUTERS
 
-### 4.1 Router Core CABA
-- [X] Configurar subinterfaces para cada VLAN (router-on-a-stick)
+### 4.1 Router CABA (Unificado)
+- [X] Configurar subinterfaces para cada VLAN de CABA (VLANs 10, 20, 30, 40)
 - [X] Asignar IPs a subinterfaces (gateways de cada VLAN)
-- [X] Configurar encapsulation dot1Q en cada subinterface
+- [X] Configurar encapsulation dot1Q en subinterfaces de CABA
+- [ ] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.129/30)
+- [ ] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.133/30)
+- [ ] Configurar interfaz WAN Serial hacia ISP (205.32.130.1/30)
 - [X] Habilitar interfaces (no shutdown)
 
-### 4.2 Router Borde CABA
-- [X] Configurar interfaz serial hacia Jujuy
-- [X] Configurar interfaz serial hacia Catamarca
-- [ ] Configurar interfaz hacia Internet (205.32.130.1/30)
+### 4.2 Router Jujuy
+- [ ] Configurar interfaz WAN Fibra hacia CABA (192.168.145.130/30)
+- [ ] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.137/30)
+- [ ] Configurar interfaz Gigabit Ethernet hacia LAN Jujuy (192.168.145.1/26)
 
-### 4.3 Router Borde Jujuy
-- [ ] Configurar interfaz serial hacia CABA (10.200.0.2/30)
-- [ ] Configurar interfaz hacia red local Jujuy
-- [ ] Configurar gateway por defecto
+### 4.3 Router Catamarca
+- [ ] Configurar interfaz WAN Fibra hacia CABA (192.168.145.134/30)
+- [ ] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.138/30)
+- [ ] Configurar interfaz Gigabit Ethernet hacia LAN Catamarca (192.168.145.65/26)
 
-### 4.4 Router Borde Catamarca
-- [ ] Configurar interfaz serial hacia CABA (10.100.0.2/30)
-- [ ] Configurar interfaz hacia red local Catamarca
-- [ ] Configurar gateway por defecto
-
-### 4.5 Router Internet
+### 4.4 Router Internet (ISP)
 - [ ] Configurar interfaz serial hacia CABA (205.32.130.2/30)
-- [ ] Configurar interfaz hacia servidor Google
-- [ ] Configurar rutas estáticas hacia redes internas
+- [ ] Configurar interfaz hacia servidor Google (64.223.190.1/24)
 
 ---
 
 ## FASE 5: RUTEO ESTÁTICO
 
-### 5.1 Rutas en Router Core CABA
-- [ ] Ruta hacia red Jujuy (172.29.2.0/24) vía Router Borde CABA
-- [ ] Ruta hacia red Catamarca (172.29.3.0/24) vía Router Borde CABA
-- [ ] Ruta por defecto hacia Internet vía Router Internet
+### 5.1 Rutas en Router CABA
+- [ ] Ruta hacia red Jujuy (192.168.145.0/26) vía 192.168.145.130
+- [ ] Ruta hacia red Catamarca (192.168.145.64/26) vía 192.168.145.134
+- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia Internet vía ISP (205.32.130.2)
 
-### 5.2 Rutas en Router Borde Jujuy
-- [ ] Ruta hacia CABA (172.29.0.0/23) vía serial
-- [ ] Ruta hacia Catamarca vía CABA
-- [ ] Ruta por defecto hacia Internet vía CABA
+### 5.2 Rutas en Router Jujuy
+- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.129 (para salida a Internet y CABA)
+- [ ] Ruta hacia Catamarca (192.168.145.64/26) vía 192.168.145.138 (enlace directo por fibra)
 
-### 5.3 Rutas en Router Borde Catamarca
-- [ ] Ruta hacia CABA (172.29.0.0/23) vía serial
-- [ ] Ruta hacia Jujuy vía CABA
-- [ ] Ruta por defecto hacia Internet vía CABA
+### 5.3 Rutas en Router Catamarca
+- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.133 (para salida a Internet y CABA)
+- [ ] Ruta hacia Jujuy (192.168.145.0/26) vía 192.168.145.137 (enlace directo por fibra)
 
-### 5.4 Rutas en Router Internet
-- [ ] Ruta hacia CABA (172.29.0.0/23)
-- [ ] Ruta hacia Jujuy (172.29.2.0/24)
-- [ ] Ruta hacia Catamarca (172.29.3.0/24)
+### 5.4 Rutas en Router Internet (ISP)
+- [ ] Ruta hacia red pública de HidroNova (200.45.110.128/25) vía 205.32.130.1 (IP externa de CABA)
+- [ ] *Nota: No configurar rutas hacia subredes privadas RFC 1918 (172.29.x.x o 192.168.x.x)*
 
 ---
 
 ## FASE 6: NAT (Network Address Translation)
 
-### 6.1 Configuración NAT en Router Borde CABA
-- [X] Configurar interfaz inside (hacia red interna)
-- [X] Configurar interfaz outside (hacia Internet)
-- [X] Crear ACL para redes internas permitidas
-- [X] Configurar NAT overload (PAT) con IP pública
-- [ ] Verificar traducción NAT
-
-### 6.2 NAT en Routers de Sede (si aplica)
-- [ ] Configurar NAT en Jujuy si tiene salida directa
-- [ ] Configurar NAT en Catamarca si tiene salida directa
+### 6.1 Configuración NAT en Router CABA
+- [X] Configurar interfaz inside (subinterfaces de VLANs y puertos hacia sedes remotas)
+- [X] Configurar interfaz outside (puerto serial hacia Internet)
+- [X] Crear ACL para redes internas permitidas (172.29.0.0/23 y 192.168.145.0/24)
+- [X] Configurar NAT overload (PAT) asociando la ACL con la IP pública del puerto serial
+- [ ] Configurar NAT estático para el Servidor Web Principal (IP interna -> IP pública del bloque asignado)
+- [ ] Configurar NAT estático para el Servidor de Correo (IP interna -> IP pública)
+- [ ] Verificar traducción NAT desde redes internas a Internet
 
 ---
 
 ## FASE 7: SERVICIOS DHCP
 
-### 7.1 DHCP Server CABA
-- [ ] Configurar servicio DHCP habilitado
-- [ ] Crear pool para cada VLAN de CABA
-- [ ] Configurar gateway por defecto en cada pool
-- [ ] Configurar DNS server en cada pool
-- [ ] Configurar rango de IPs disponibles
-- [ ] Excluir IPs de servidores y gateways
+### 7.1 DHCP Server CABA (Centralizado en IP 172.29.0.70/23)
+- [ ] Habilitar servicio DHCP en el servidor de CABA
+- [ ] Crear pool para cada VLAN de CABA (Administración, Logística, Gerencia, Sistemas)
+- [ ] Configurar gateway por defecto y DNS server en cada pool de CABA
+- [ ] Excluir IPs de servidores y de interfaces de routers en cada subred
 
-### 7.2 DHCP Server Jujuy
-- [ ] Configurar servicio DHCP
-- [ ] Crear pool para VLANs de Jujuy
-- [ ] Configurar gateway y DNS
+### 7.2 DHCP en Sede Jujuy (Único segmento)
+- [ ] Configurar pool para Jujuy (en servidor DHCP CABA o localmente en Router Jujuy)
+- [ ] Configurar gateway por defecto (192.168.145.1) y DNS en el pool
 
-### 7.3 DHCP Server Catamarca
-- [ ] Configurar servicio DHCP
-- [ ] Crear pool para VLANs de Catamarca
-- [ ] Configurar gateway y DNS
+### 7.3 DHCP en Sede Catamarca (Único segmento)
+- [ ] Configurar pool para Catamarca (en servidor DHCP CABA o localmente en Router Catamarca)
+- [ ] Configurar gateway por defecto (192.168.145.65) y DNS en el pool
 
-### 7.4 DHCP Relay (si es necesario)
-- [X] Configurar ip helper-address en interfaces de router CABA
-- [ ] Configurar ip helper-address en interfaces de router Jujuy
-- [ ] Configurar ip helper-address en interfaces de router Catamarca
-- [ ] Verificar que DHCP funcione entre VLANs
+### 7.4 DHCP Relay (Si se centraliza el servicio en el servidor DHCP CABA)
+- [X] Configurar ip helper-address en subinterfaces de Router CABA (si el servidor está en VLAN Sistemas)
+- [ ] Configurar ip helper-address en la interfaz LAN de Router Jujuy apuntando a la IP 172.29.0.70
+- [ ] Configurar ip helper-address en la interfaz LAN de Router Catamarca apuntando a la IP 172.29.0.70
+- [ ] Verificar asignación automática de IPs en todas las sedes
 
 ---
 
 ## FASE 8: SERVICIOS DNS
 
-### 8.1 DNS ROOT Server
+### 8.1 DNS ROOT Server (Simulado en Internet)
 - [ ] Configurar IP: 193.0.14.129/24
 - [ ] Configurar registros NS para root (.)
 - [ ] Configurar registros A para root servers
 - [ ] Habilitar servicio DNS
 
-### 8.2 DNS .ar .com.ar Server
+### 8.2 DNS .ar / .com.ar Server (Simulado en Internet)
 - [ ] Configurar IP: 200.108.148.50/24
 - [ ] Configurar registros NS para .ar
-- [ ] Configurar delegaciones para edu.ar
+- [ ] Configurar delegación para hidronova.com.ar apuntando a los DNS de la empresa
 - [ ] Habilitar servicio DNS
 
-### 8.3 DNS edu.ar Server
-- [ ] Configurar IP: 170.210.5.56/16
-- [ ] Configurar registros A para servidores educativos
-- [ ] Habilitar servicio DNS
-
-### 8.4 DNS Local Resolver CABA
-- [ ] Configurar IP: 172.29.0.66/24
-- [ ] Configurar root hints (NS . y A records)
-- [ ] Configurar forwarders si es necesario
-- [ ] Habilitar servicio DNS
-
-### 8.5 DNS Primario CABA
-- [ ] Configurar IP: 172.29.0.4/24
-- [ ] Crear registros A para servidores web
-- [ ] Crear registros A para servidor de correo
-- [ ] Crear registros MX para correo
-- [ ] Crear registros CNAME si es necesario
-- [ ] Habilitar servicio DNS
-
-### 8.6 DNS Secundario CABA
-- [ ] Configurar IP: 172.29.0.5/24
-- [ ] Configurar como secundario del DNS primario
-- [ ] Habilitar servicio DNS
-
-### 8.7 DNS Primario Logística y Transporte
-- [ ] Configurar IP: 172.29.0.10/24
-- [ ] Crear registros para servidores de L y T
-- [ ] Habilitar servicio DNS
-
-### 8.8 DNS Secundario Logística y Transporte
-- [ ] Configurar IP: 172.29.0.9/24
-- [ ] Configurar como secundario
-- [ ] Habilitar servicio DNS
-
-### 8.9 DNS Local Resolver Google
+### 8.3 DNS Local Resolver Google (Simulado en Internet)
 - [ ] Configurar IP: 8.8.8.8/24
 - [ ] Configurar root hints
+- [ ] Habilitar servicio DNS
+
+### 8.4 DNS Local Resolver CABA (Interno)
+- [ ] Configurar IP: 172.29.0.66/23
+- [ ] Configurar root hints para resolver dominios de Internet
+- [ ] Configurar forwarders hacia el servidor DNS Primario para la zona interna
+- [ ] Habilitar servicio DNS
+
+### 8.5 DNS Primario CABA (Autoritativo para hidronova.com.ar)
+- [ ] Configurar IP: 172.29.0.4/23
+- [ ] Crear registros A para servidores web y de correo en CABA
+- [ ] Crear registro MX para el correo (mail.hidronova.com.ar)
+- [ ] Configurar delegación para el subdominio logistica.hidronova.com.ar apuntando al DNS de Jujuy
+- [ ] Habilitar servicio DNS
+
+### 8.6 DNS Secundario CABA (Réplica de hidronova.com.ar)
+- [ ] Configurar IP: 172.29.0.5/23
+- [ ] Configurar transferencia de zona desde el DNS Primario CABA
+- [ ] Habilitar servicio DNS
+
+### 8.7 DNS Primario Logística y Transporte (Alojado en Jujuy)
+- [ ] Configurar IP: 192.168.145.10/26 (En la sede Jujuy)
+- [ ] Crear registros A para servidores locales (ej. Web Jujuy en 192.168.145.6)
+- [ ] Configurar zona autoritativa para logistica.hidronova.com.ar
 - [ ] Habilitar servicio DNS
 
 ---
 
 ## FASE 9: SERVIDORES WEB
 
-### 9.1 Web Principal
-- [ ] Configurar IP: 172.29.0.3/24
+### 9.1 Web Principal (Sede CABA)
+- [ ] Configurar IP: 172.29.0.3/23
 - [ ] Habilitar servicio HTTP
-- [ ] Habilitar servicio HTTPS (si es necesario)
-- [ ] Crear página index.html
-- [ ] Configurar DNS A record (www.hidronova.com.ar)
+- [ ] Diseñar index.html (logo, info general, links a servicios)
+- [ ] Configurar registro A (www.hidronova.com.ar) en DNS Primario CABA
 
-### 9.2 Web Logística y Transporte
-- [ ] Configurar IP: 172.29.0.6/24
+### 9.2 Web Logística y Transporte (Sede Jujuy - Segundo Servidor Web)
+- [ ] Configurar IP: 192.168.145.6/26 (Ubicado físicamente en la sala de datos de Jujuy)
 - [ ] Habilitar servicio HTTP
-- [ ] Crear página index.html
-- [ ] Configurar DNS A record
+- [ ] Diseñar index.html (info del departamento de L y T, listado de sucursales)
+- [ ] Configurar registro A (logistica.hidronova.com.ar o similar) en DNS de Jujuy
 
-### 9.3 Web Seguro L y T
-- [ ] Configurar IP: 172.29.0.7/24
+### 9.3 Web Seguro L y T (Sede CABA - Primer Servidor HTTPS)
+- [ ] Configurar IP: 172.29.0.7/23
 - [ ] Habilitar servicio HTTPS
-- [ ] Crear página segura
-- [ ] Configurar DNS A record
+- [ ] Diseñar index.html (pantalla de acceso al sistema de gestión de logística)
+- [ ] Configurar registro A (secure-logistica.hidronova.com.ar) en DNS Primario
 
-### 9.4 Web Intranet ADM
-- [ ] Configurar IP: 172.29.0.8/24
-- [ ] Habilitar servicio HTTP
-- [ ] Crear página intranet
-- [ ] Configurar DNS A record
-- [ ] Configurar firewall para restringir acceso
+### 9.4 Web Intranet ADM (Sede CABA - Segundo Servidor HTTPS)
+- [ ] Configurar IP: 172.29.0.8/23
+- [ ] Habilitar servicio HTTPS
+- [ ] Diseñar index.html (intranet administrativa)
+- [ ] Configurar registro A (intranet.hidronova.com.ar) en DNS Primario
+- [ ] Configurar firewall local para restringir acceso solo a clientes de la VLAN Administración
 
 ---
 
 ## FASE 10: SERVICIO DE CORREO
 
-### 10.1 Servidor de Correo
-- [ ] Configurar IP: 172.29.0.11/24
-- [ ] Habilitar servicio SMTP
-- [ ] Habilitar servicio POP3
-- [ ] Configurar dominio: hidronova.com.ar
-- [ ] Crear cuentas de usuario (ej: admin@hidronova.com.ar)
-- [ ] Configurar registro MX en DNS
-- [ ] Configurar registro A para mail.hidronova.com.ar
+### 10.1 Servidor de Correo (Sede CABA)
+- [ ] Configurar IP: 172.29.0.11/23
+- [ ] Habilitar SMTP (puerto 25) y POP3 (puerto 110)
+- [ ] Configurar dominio de correo: hidronova.com.ar
+- [ ] Crear cuentas de usuario para pruebas (mínimo 3 de distintas VLANs/sedes)
+- [ ] Configurar registro MX (mail.hidronova.com.ar) en DNS Primario CABA
+- [ ] Configurar registro A (mail.hidronova.com.ar) en DNS Primario CABA
 
 ---
 
@@ -500,31 +473,33 @@
 ## NOTAS IMPORTANTES
 
 ### IPs Críticas a Verificar
-- **Router Internet:** 193.0.14.1 (Ethernet1/0), 205.32.130.1 (Serial hacia Internet)
-- **DNS ROOT:** 193.0.14.129
-- **DNS .ar:** 200.108.148.50
-- **DNS edu.ar:** 170.210.5.56
-- **DNS Local Resolver CABA:** 172.29.0.66
-- **DNS Primario CABA:** 172.29.0.4
-- **DNS Secundario CABA:** 172.29.0.5
-- **Web Principal:** 172.29.0.3
-- **Web L y T:** 172.29.0.6
-- **Web Seguro:** 172.29.0.7
-- **Web Intranet:** 172.29.0.8
-- **Correo:** 172.29.0.11
-- **DHCP Server:** 172.29.0.70
-- **Google Simulator:** 64.223.190.94
-- **DNS Google:** 8.8.8.8
+- **Router Internet (ISP):** 193.0.14.1 (vía servidor Google), 205.32.130.2 (vía CABA)
+- **Router CABA (IP Externa):** 205.32.130.1
+- **DNS ROOT (Internet):** 193.0.14.129
+- **DNS .ar (Internet):** 200.108.148.50
+- **DNS Local Resolver Google:** 8.8.8.8
+- **Google Simulator (Servidor):** 64.223.190.94
+- **DNS Local Resolver CABA:** 172.29.0.66/23
+- **DNS Primario CABA:** 172.29.0.4/23
+- **DNS Secundario CABA:** 172.29.0.5/23
+- **DNS Primario Logística y Transporte (Jujuy):** 192.168.145.10/26
+- **Web Principal (CABA):** 172.29.0.3/23
+- **Web Logística y Transporte (Jujuy):** 192.168.145.6/26
+- **Web Seguro L y T (CABA):** 172.29.0.7/23
+- **Web Intranet ADM (CABA):** 172.29.0.8/23
+- **Correo Server (CABA):** 172.29.0.11/23
+- **DHCP Server (CABA):** 172.29.0.70/23
 
-### Segmentos WAN
-- **CABA-Jujuy:** 10.200.0.0/30
-- **CABA-Catamarca:** 10.100.0.0/30
-- **Internet:** 205.32.130.0/30
+### Segmentos WAN (Fibra Óptica e Internet)
+- **WAN Fibra CABA-Jujuy:** 192.168.145.128/30
+- **WAN Fibra CABA-Catamarca:** 192.168.145.132/30
+- **WAN Fibra Jujuy-Catamarca:** 192.168.145.136/30
+- **WAN Serial Internet (CABA-ISP):** 205.32.130.0/30
 
 ### Bloques de Red Principales
-- **CABA:** 172.29.0.0/23 (510 hosts útiles)
-- **Jujuy:** 172.29.2.0/24 (254 hosts útiles)
-- **Catamarca:** 172.29.3.0/24 (254 hosts útiles)
+- **CABA:** 172.29.0.0/23 (510 hosts útiles - segmentado en VLANs 10, 20, 30, 40)
+- **Jujuy:** 192.168.145.0/26 (62 hosts útiles - segmento plano único)
+- **Catamarca:** 192.168.145.64/26 (62 hosts útiles - segmento plano único)
 
 ---
 
