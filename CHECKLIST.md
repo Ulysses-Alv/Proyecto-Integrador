@@ -9,16 +9,16 @@
 
 ### 1.1 Sede CABA (172.29.0.0/23)
 - [ ] **Edificio Principal**
-  - [ ] Router Core CABA (conectado a switches de piso)
-  - [ ] Router Borde CABA (conexión por FIBRA a Jujuy y Catamarca)
-  - [ ] Switches de piso (uno por piso con departamentos)
+  - [X] Router Core CABA (conectado a switches de piso)
+  - [X] Router Borde CABA (conexión por FIBRA a Jujuy y Catamarca)
+  - [X] Switches de piso (uno por piso con departamentos)
   - [ ] PCs por departamento (configurados con IP estática o DHCP)
   - [ ] Access Points inalámbricos (configurados con SSID y WPA2)
   - [ ] IP Phones (configurados)
   - [ ] Printers (configurados)
 
 - [ ] **Edificio Secundario**
-  - [ ] Switches de piso
+  - [X] Switches de piso
   - [ ] PCs por departamento
   - [ ] Access Points inalámbricos
   - [ ] IP Phones
@@ -29,13 +29,13 @@
   - [ ] Interfaces de fibra configuradas en routers/switches
 
 ### 1.2 Sede Jujuy (172.29.2.0/24)
-- [ ] Router Borde Jujuy
-- [ ] Switches de piso
-- [ ] PCs por departamento
-- [ ] Access Points inalámbricos
-- [ ] IP Phones
-- [ ] Printers
-- [ ] Conexión WAN a CABA (serial)
+- [X] Router Borde Jujuy
+- [X] Switches de piso
+- [X] PCs por departamento
+- [X] Access Points inalámbricos
+- [X] IP Phones
+- [X] Printers
+- [X] Conexión WAN a CABA (serial)
 
 ### 1.3 Sede Catamarca (172.29.3.0/24)
 - [ ] Router Borde Catamarca
@@ -59,31 +59,17 @@
 ## FASE 2: DIRECCIONAMIENTO IP Y VLANs
 
 ### 2.1 Subneteo y VLANs CABA
-- [ ] VLAN 10: Administración (172.29.0.0/23)
-- [ ] VLAN 20: Logística y Transporte
-- [ ] VLAN 30: Contabilidad
-- [ ] VLAN 40: Desarrollo
-- [ ] VLAN 50: Ingeniería
-- [ ] VLAN 60: RRHH
-- [ ] VLAN 70: Facturación y Liquidaciones
-- [ ] VLAN 80: Dpto Marketing
-- [ ] VLAN 90: Gerentes
-- [ ] VLAN 100: Dpto Compras
-- [ ] VLAN 110: Dpto M.A y Sostenibilidad
-- [ ] VLAN 120: Atención al Público
-- [ ] VLAN 130: SUM
-- [ ] VLAN 140: Sala Reunión
-- [ ] VLAN 150: Dpto Comercial
-- [ ] VLAN 160: Producción
-- [ ] VLAN 170: Dpto Administracion
-- [ ] VLAN 99: VLAN de administración de red
+- [X] VLAN 10: Administración
+- [X] VLAN 20: Logistica
+- [X] VLAN 30: Gerencia
+- [X] VLAN 40: Sistemas
 
 ### 2.2 Subneteo Jujuy
-- [ ] VLANs para departamentos de Jujuy
+
 - [ ] Subnets dentro de 172.29.2.0/24
 
 ### 2.3 Subneteo Catamarca
-- [ ] VLANs para departamentos de Catamarca
+
 - [ ] Subnets dentro de 172.29.3.0/24
 
 ### 2.4 Segmentos WAN
@@ -101,16 +87,14 @@
 ## FASE 3: CONFIGURACIÓN DE SWITCHES
 
 ### 3.1 Configuración VLANs en Switches
-- [ ] Crear todas las VLANs en switches de CABA
-- [ ] Crear VLANs en switches de Jujuy
-- [ ] Crear VLANs en switches de Catamarca
-- [ ] Asignar puertos de acceso a VLANs correspondientes
-- [ ] Configurar puertos trunk entre switches y routers
+- [X] Crear todas las VLANs en switches de CABA
+- [X] Asignar puertos de acceso a VLANs correspondientes
+- [X] Configurar puertos trunk entre switches y routers
 
 ### 3.2 Trunking
-- [ ] Configurar trunk entre Router Core y Switches
-- [ ] Configurar trunk entre switches interconectados
-- [ ] Verificar que las VLANs pasen por los trunks
+- [X] Configurar trunk entre Router Core y Switches
+- [X] Configurar trunk entre switches interconectados
+- [] Verificar que las VLANs pasen por los trunks
 
 ### 3.3 Switches de Piso
 - [ ] Configurar switchport mode access en puertos de PCs
