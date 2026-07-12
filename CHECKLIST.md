@@ -195,9 +195,9 @@
 - [X] ~~Habilitar servicio DNS~~
 
 ### 8.3 DNS Local Resolver Google (Simulado en Internet)
-- [ ] Configurar IP: 8.8.8.8/24
-- [ ] Configurar root hints
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 8.8.8.8/24
+- [X] Configurar root hints
+- [X] Habilitar servicio DNS
 
 ### 8.4 DNS Local Resolver CABA (Interno)
 - [X] ~~Configurar IP: 172.29.0.66/23~~
@@ -227,29 +227,29 @@
 ## FASE 9: SERVIDORES WEB
 
 ### 9.1 Web Principal (Sede CABA)
-- [ ] Configurar IP
-- [ ] Habilitar servicio HTTP
-- [ ] Diseñar index.html (logo, info general, links a servicios)
-- [ ] Configurar registro A (www.hidronova.com.ar) en DNS Primario CABA
+- [ X] Configurar IP
+- [ X] Habilitar servicio HTTP
+- [ X] Diseñar index.html (logo, info general, links a servicios)
+- [ X] Configurar registro A (www.hidronova.com.ar) en DNS Primario CABA
 
 ### 9.2 Web Logística y Transporte (Sede Jujuy - Segundo Servidor Web)
-- [ ] Configurar IP (Ubicado físicamente en la sala de datos de Jujuy)
-- [ ] Habilitar servicio HTTP
-- [ ] Diseñar index.html (info del departamento de L y T, listado de sucursales)
-- [ ] Configurar registro A (logistica.hidronova.com.ar o similar) en DNS de Jujuy
+- [ X] Configurar IP (Ubicado físicamente en la sala de datos de Jujuy)
+- [X ] Habilitar servicio HTTP
+- [ X] Diseñar index.html (info del departamento de L y T, listado de sucursales)
+- [ X] Configurar registro A (logistica.hidronova.com.ar o similar) en DNS de Jujuy
 
 ### 9.3 Web Seguro L y T (Sede CABA - Primer Servidor HTTPS)
-- [ ] Configurar IP: 172.29.0.7/23
-- [ ] Habilitar servicio HTTPS
-- [ ] Diseñar index.html (pantalla de acceso al sistema de gestión de logística)
-- [ ] Configurar registro A (secure-logistica.hidronova.com.ar) en DNS Primario
+- [X ] Configurar IP: 172.29.0.7/23
+- [X ] Habilitar servicio HTTPS
+- [X ] Diseñar index.html (pantalla de acceso al sistema de gestión de logística)
+- [X ] Configurar registro A (secure-logistica.hidronova.com.ar) en DNS Primario
 
 ### 9.4 Web Intranet ADM (Sede CABA - Segundo Servidor HTTPS)
-- [ ] Configurar IP: 172.29.0.8/23
-- [ ] Habilitar servicio HTTPS
-- [ ] Diseñar index.html (intranet administrativa)
-- [ ] Configurar registro A (intranet.hidronova.com.ar) en DNS Primario
-- [ ] Configurar firewall local para restringir acceso solo a clientes de la VLAN Administración
+- [X ] Configurar IP: 172.29.0.8/23
+- [ X] Habilitar servicio HTTPS
+- [X ] Diseñar index.html (intranet administrativa)
+- [X ] Configurar registro A (intranet.hidronova.com.ar) en DNS Primario
+- [X ] Configurar firewall local para restringir acceso solo a clientes de la VLAN Administración
 
 ---
 
