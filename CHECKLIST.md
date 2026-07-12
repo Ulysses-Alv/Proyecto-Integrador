@@ -35,7 +35,7 @@
 - [X] PCs por departamento
 - [ ] Access Points inalámbricos
 - [X] IP Phones
-- [] Printers
+- [ ] Printers
 - [X] Conexión WAN a CABA (Fibra óptica Gigabit)
 
 ### 1.4 Segmento Público / Internet
@@ -57,20 +57,20 @@
 - [X] VLAN 40: Sistemas y Centro de Datos
 
 ### 2.2 Direccionamiento Jujuy (Único segmento plano)
-- [ ] Configurar red local Jujuy: 192.168.145.0/26 (32 puestos + servidores + APs/Printers)
+- [X] Configurar red local Jujuy: 192.168.145.0/26 (32 puestos + servidores + APs/Printers)
 
 ### 2.3 Direccionamiento Catamarca (Único segmento plano)
-- [ ] Configurar red local Catamarca: 192.168.145.64/26 (20 puestos + servidores + APs/Printers)
+- [X] Configurar red local Catamarca: 192.168.145.64/26 (20 puestos + servidores + APs/Printers)
 
 ### 2.4 Segmentos WAN (Interconexión de routers)
-- [ ] WAN Fibra CABA-Jujuy: 192.168.145.128/30
-- [ ] WAN Fibra CABA-Catamarca: 192.168.145.132/30
-- [ ] WAN Fibra Jujuy-Catamarca: 192.168.145.136/30
+- [X] WAN Fibra CABA-Jujuy: 192.168.145.128/30
+- [X] WAN Fibra CABA-Catamarca: 192.168.145.132/30
+- [X] WAN Fibra Jujuy-Catamarca: 192.168.145.136/30
 - [ ] WAN Serial CABA-Internet: 205.32.130.0/30
 
 ### 2.5 Segmentación de Servidores
-- [ ] Servidores CABA (VLAN 40): Subred 172.29.0.0/24
-- [ ] Servidores Jujuy (Locales): IPs asignadas dentro del rango 192.168.145.0/26 (ej: DNS Logística, Web Logística)
+- [X] Servidores CABA (VLAN 40): Subred 172.29.0.0/24
+- [X] Servidores Jujuy (Locales): IPs asignadas dentro del rango 192.168.145.0/26 (ej: DNS Logística, Web Logística)
 
 ---
 
@@ -84,14 +84,14 @@
 ### 3.2 Trunking
 - [X] Configurar trunk entre Router Core y Switches
 - [X] Configurar trunk entre switches interconectados
-- [] Verificar que las VLANs pasen por los trunks
+- [ ] Verificar que las VLANs pasen por los trunks
 
 ### 3.3 Switches de Piso
 - [X] Configurar switchport mode access en puertos de PCs
 - [X] Configurar switchport access vlan [ID] en cada puerto
-- [ ] Configurar puertos de Access Points
-- [ ] Configurar puertos de IP Phones
-- [ ] Configurar puertos de Printers
+- [X] Configurar puertos de Access Points
+- [X] Configurar puertos de IP Phones
+- [X] Configurar puertos de Printers
 
 ---
 
@@ -101,20 +101,20 @@
 - [X] Configurar subinterfaces para cada VLAN de CABA (VLANs 10, 20, 30, 40)
 - [X] Asignar IPs a subinterfaces (gateways de cada VLAN)
 - [X] Configurar encapsulation dot1Q en subinterfaces de CABA
-- [ ] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.129/30)
-- [ ] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.133/30)
-- [ ] Configurar interfaz WAN Serial hacia ISP (205.32.130.1/30)
+- [X] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.129/30)
+- [X] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.133/30)
+- [X] Configurar interfaz WAN Serial hacia ISP (205.32.130.1/30)
 - [X] Habilitar interfaces (no shutdown)
 
 ### 4.2 Router Jujuy
-- [ ] Configurar interfaz WAN Fibra hacia CABA (192.168.145.130/30)
-- [ ] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.137/30)
-- [ ] Configurar interfaz Gigabit Ethernet hacia LAN Jujuy (192.168.145.1/26)
+- [X] Configurar interfaz WAN Fibra hacia CABA (192.168.145.130/30)
+- [X] Configurar interfaz WAN Fibra hacia Catamarca (192.168.145.137/30)
+- [X] Configurar interfaz Gigabit Ethernet hacia LAN Jujuy (192.168.145.1/26)
 
 ### 4.3 Router Catamarca
-- [ ] Configurar interfaz WAN Fibra hacia CABA (192.168.145.134/30)
-- [ ] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.138/30)
-- [ ] Configurar interfaz Gigabit Ethernet hacia LAN Catamarca (192.168.145.65/26)
+- [X] Configurar interfaz WAN Fibra hacia CABA (192.168.145.134/30)
+- [X] Configurar interfaz WAN Fibra hacia Jujuy (192.168.145.138/30)
+- [X] Configurar interfaz Gigabit Ethernet hacia LAN Catamarca (192.168.145.65/26)
 
 ### 4.4 Router Internet (ISP)
 - [ ] Configurar interfaz serial hacia CABA (205.32.130.2/30)
@@ -125,17 +125,17 @@
 ## FASE 5: RUTEO ESTÁTICO
 
 ### 5.1 Rutas en Router CABA
-- [ ] Ruta hacia red Jujuy (192.168.145.0/26) vía 192.168.145.130
-- [ ] Ruta hacia red Catamarca (192.168.145.64/26) vía 192.168.145.134
-- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia Internet vía ISP (205.32.130.2)
+- [X] Ruta hacia red Jujuy (192.168.145.0/26) vía 192.168.145.130
+- [X] Ruta hacia red Catamarca (192.168.145.64/26) vía 192.168.145.134
+- [X] Ruta por defecto (0.0.0.0 0.0.0.0) hacia Internet vía ISP (205.32.130.2)
 
 ### 5.2 Rutas en Router Jujuy
-- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.129 (para salida a Internet y CABA)
-- [ ] Ruta hacia Catamarca (192.168.145.64/26) vía 192.168.145.138 (enlace directo por fibra)
+- [X] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.129 (para salida a Internet y CABA)
+- [X] Ruta hacia Catamarca (192.168.145.64/26) vía 192.168.145.138 (enlace directo por fibra)
 
 ### 5.3 Rutas en Router Catamarca
-- [ ] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.133 (para salida a Internet y CABA)
-- [ ] Ruta hacia Jujuy (192.168.145.0/26) vía 192.168.145.137 (enlace directo por fibra)
+- [X] Ruta por defecto (0.0.0.0 0.0.0.0) hacia CABA vía 192.168.145.133 (para salida a Internet y CABA)
+- [X] Ruta hacia Jujuy (192.168.145.0/26) vía 192.168.145.137 (enlace directo por fibra)
 
 ### 5.4 Rutas en Router Internet (ISP)
 - [ ] Ruta hacia red pública de HidroNova (200.45.110.128/25) vía 205.32.130.1 (IP externa de CABA)
@@ -152,7 +152,7 @@
 - [X] Configurar NAT overload (PAT) asociando la ACL con la IP pública del puerto serial
 - [X] Configurar NAT estático para el Servidor Web Principal (IP interna -> IP pública del bloque asignado)
 - [X] Configurar NAT estático para el Servidor de Correo (IP interna -> IP pública)
-- [] Verificar traducción NAT desde redes internas a Internet
+- [ ] Verificar traducción NAT desde redes internas a Internet
 
 ---
 
@@ -183,16 +183,16 @@
 ## FASE 8: SERVICIOS DNS
 
 ### 8.1 DNS ROOT Server (Simulado en Internet)
-- [ ] Configurar IP: 193.0.14.129/24
-- [ ] Configurar registros NS para root (.)
-- [ ] Configurar registros A para root servers
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 193.0.14.129/24
+- [X] Configurar registros NS para root (.)
+- [X] Configurar registros A para root servers
+- [X] Habilitar servicio DNS
 
 ### 8.2 DNS .ar / .com.ar Server (Simulado en Internet)
-- [ ] Configurar IP: 200.108.148.50/24
-- [ ] Configurar registros NS para .ar
-- [ ] Configurar delegación para hidronova.com.ar apuntando a los DNS de la empresa
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 200.108.148.50/24
+- [X] Configurar registros NS para .ar
+- [X] Configurar delegación para hidronova.com.ar apuntando a los DNS de la empresa
+- [X] Habilitar servicio DNS
 
 ### 8.3 DNS Local Resolver Google (Simulado en Internet)
 - [ ] Configurar IP: 8.8.8.8/24
@@ -200,41 +200,40 @@
 - [ ] Habilitar servicio DNS
 
 ### 8.4 DNS Local Resolver CABA (Interno)
-- [ ] Configurar IP: 172.29.0.66/23
-- [ ] Configurar root hints para resolver dominios de Internet
-- [ ] Configurar forwarders hacia el servidor DNS Primario para la zona interna
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 172.29.0.66/23
+- [X] Configurar root hints para resolver dominios de Internet
+- [X] Configurar forwarders hacia el servidor DNS Primario para la zona interna
+- [X] Habilitar servicio DNS
 
 ### 8.5 DNS Primario CABA (Autoritativo para hidronova.com.ar)
-- [ ] Configurar IP: 172.29.0.4/23
-- [ ] Crear registros A para servidores web y de correo en CABA
-- [ ] Crear registro MX para el correo (mail.hidronova.com.ar)
-- [ ] Configurar delegación para el subdominio logistica.hidronova.com.ar apuntando al DNS de Jujuy
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 172.29.0.4/23
+- [X] Crear registros A para servidores web y de correo en CABA
+- [X] Configurar delegación para el subdominio logistica.hidronova.com.ar apuntando al DNS de Jujuy
+- [X] Habilitar servicio DNS
 
 ### 8.6 DNS Secundario CABA (Réplica de hidronova.com.ar)
-- [ ] Configurar IP: 172.29.0.5/23
-- [ ] Configurar transferencia de zona desde el DNS Primario CABA
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 172.29.0.5/23
+- [X] Configurar transferencia de zona desde el DNS Primario CABA
+- [X] Habilitar servicio DNS
 
 ### 8.7 DNS Primario Logística y Transporte (Alojado en Jujuy)
-- [ ] Configurar IP: 192.168.145.10/26 (En la sede Jujuy)
-- [ ] Crear registros A para servidores locales (ej. Web Jujuy en 192.168.145.6)
-- [ ] Configurar zona autoritativa para logistica.hidronova.com.ar
-- [ ] Habilitar servicio DNS
+- [X] Configurar IP: 192.168.145.10/26 (En la sede Jujuy)
+- [X] Crear registros A para servidores locales (ej. Web Jujuy en 192.168.145.6)
+- [X] Configurar zona autoritativa para logistica.hidronova.com.ar
+- [X] Habilitar servicio DNS
 
 ---
 
 ## FASE 9: SERVIDORES WEB
 
 ### 9.1 Web Principal (Sede CABA)
-- [ ] Configurar IP: 172.29.0.3/23
+- [ ] Configurar IP
 - [ ] Habilitar servicio HTTP
 - [ ] Diseñar index.html (logo, info general, links a servicios)
 - [ ] Configurar registro A (www.hidronova.com.ar) en DNS Primario CABA
 
 ### 9.2 Web Logística y Transporte (Sede Jujuy - Segundo Servidor Web)
-- [ ] Configurar IP: 192.168.145.6/26 (Ubicado físicamente en la sala de datos de Jujuy)
+- [ ] Configurar IP (Ubicado físicamente en la sala de datos de Jujuy)
 - [ ] Habilitar servicio HTTP
 - [ ] Diseñar index.html (info del departamento de L y T, listado de sucursales)
 - [ ] Configurar registro A (logistica.hidronova.com.ar o similar) en DNS de Jujuy
@@ -257,176 +256,157 @@
 ## FASE 10: SERVICIO DE CORREO
 
 ### 10.1 Servidor de Correo (Sede CABA)
-- [ ] Configurar IP: 172.29.0.11/23
-- [ ] Habilitar SMTP (puerto 25) y POP3 (puerto 110)
-- [ ] Configurar dominio de correo: hidronova.com.ar
-- [ ] Crear cuentas de usuario para pruebas (mínimo 3 de distintas VLANs/sedes)
-- [ ] Configurar registro MX (mail.hidronova.com.ar) en DNS Primario CABA
-- [ ] Configurar registro A (mail.hidronova.com.ar) en DNS Primario CABA
+- [X] Configurar IP: 172.29.0.11/23
+- [X] Habilitar SMTP (puerto 25) y POP3 (puerto 110)
+- [X] Configurar dominio de correo: hidronova.com.ar
+- [X] Crear cuentas de usuario para pruebas (mínimo 3 de distintas VLANs/sedes)
+- [X] Configurar registro MX (mail.hidronova.com.ar) en DNS Primario CABA
+- [X] Configurar registro A (mail.hidronova.com.ar) en DNS Primario CABA
 
 ---
 
-## FASE 11: SERVICIOS ADICIONALES
+## FASE 11: CONFIGURACIÓN DE CLIENTES
 
-### 11.1 Servidor FTP
-- [ ] Configurar servicio FTP habilitado
-- [ ] Crear usuarios FTP con permisos
-- [ ] Configurar directorios
-
-### 11.2 Servidor NTP
-- [ ] Configurar servicio NTP habilitado
-- [ ] Configurar como servidor de tiempo
-
-### 11.3 Servidor Syslog
-- [ ] Configurar servicio Syslog habilitado
-- [ ] Configurar dispositivos para enviar logs
-
----
-
-## FASE 12: CONFIGURACIÓN DE CLIENTES
-
-### 12.1 PCs con IP Estática
+### 11.1 PCs con IP Estática
 - [ ] Configurar IP, máscara, gateway, DNS en cada PC
 - [ ] Verificar conectividad
 
-### 12.2 PCs con DHCP
+### 11.2 PCs con DHCP
 - [ ] Configurar para obtener IP automáticamente
 - [ ] Verificar que reciban IP del servidor DHCP
 - [ ] Verificar conectividad
 
-### 12.3 Laptops
+### 11.3 Laptops
 - [ ] Configurar para DHCP
 - [ ] Verificar conectividad inalámbrica
 
-### 12.4 Access Points
+### 11.4 Access Points
 - [ ] Configurar SSID
 - [ ] Configurar WPA2-PSK key
 - [ ] Configurar IP de gestión
 - [ ] Verificar conectividad inalámbrica
 
-### 12.5 IP Phones
+### 11.5 IP Phones
 - [ ] Configurar IPs
 - [ ] Verificar conectividad
 
-### 12.6 Printers
+### 11.6 Printers
 - [ ] Configurar IPs
 - [ ] Verificar que sean alcanzables desde PCs
 
 ---
 
-## FASE 13: SEGURIDAD
+## FASE 12: SEGURIDAD
 
-### 13.1 ACLs (Access Control Lists)
+### 12.1 ACLs (Access Control Lists)
 - [ ] Crear ACLs para restringir acceso entre VLANs
 - [ ] Aplicar ACLs en interfaces de router
 - [ ] Verificar que las ACLs funcionen correctamente
 
-### 13.2 Firewall en Servidores
+### 12.2 Firewall en Servidores
 - [ ] Configurar reglas de firewall en servidores web
 - [ ] Configurar reglas de firewall en servidor de correo
 - [ ] Configurar reglas de firewall en otros servidores
 - [ ] Permitir solo tráfico necesario (puertos 80, 443, 25, 110, etc.)
 
-### 13.3 Seguridad Inalámbrica
-- [ ] Verificar que WPA2 esté configurado en todos los APs
-- [ ] Verificar que las keys sean seguras
-- [ ] Configurar ocultar SSID si es necesario
+### 12.3 Seguridad Inalámbrica
+- [X] Verificar que WPA2 esté configurado en todos los APs
 
-### 13.4 Seguridad de Switches
+### 12.4 Seguridad de Switches
 - [ ] Deshabilitar puertos no utilizados
 - [ ] Configurar port security si es necesario
 - [ ] Configurar storm control
 
 ---
 
-## FASE 14: PRUEBAS DE CONECTIVIDAD
+## FASE 13: PRUEBAS DE CONECTIVIDAD
 
-### 14.1 Pruebas de Ping
+### 13.1 Pruebas de Ping
 - [ ] Ping entre PCs de la misma VLAN
 - [ ] Ping entre PCs de diferentes VLANs (misma sede)
 - [ ] Ping entre PCs de diferentes sedes
 - [ ] Ping desde PCs internas a Internet (Google)
 - [ ] Ping desde PC Google a servidores internos
 
-### 14.2 Pruebas de DNS
+### 13.2 Pruebas de DNS
 - [ ] nslookup www.hidronova.com.ar desde PC interna
 - [ ] nslookup mail.hidronova.com.ar
 - [ ] nslookup de dominios externos desde PC interna
 - [ ] Verificar resolución recursiva
 
-### 14.3 Pruebas de Web
+### 13.3 Pruebas de Web
 - [ ] Acceder a http://www.hidronova.com.ar desde PC interna
 - [ ] Acceder a https://www.hidronova.com.ar (si aplica)
 - [ ] Acceder a web de Logística y Transporte
 - [ ] Acceder a web segura
 - [ ] Acceder a intranet
 
-### 14.4 Pruebas de Correo
+### 13.4 Pruebas de Correo
 - [ ] Enviar correo entre cuentas del mismo dominio
 - [ ] Enviar correo a cuenta externa (si es posible)
 - [ ] Recibir correo desde cuenta externa
 
-### 14.5 Pruebas de DHCP
+### 13.5 Pruebas de DHCP
 - [ ] Verificar que PCs reciban IP automáticamente
 - [ ] Verificar que reciban gateway correcto
 - [ ] Verificar que reciban DNS correcto
 - [ ] Verificar renew/release de IPs
 
-### 14.6 Pruebas de NAT
+### 13.6 Pruebas de NAT
 - [ ] Verificar que tráfico interno se traduzca a IP pública
 - [ ] Verificar conectividad a Internet
 - [ ] Verificar que no se pueda acceder desde Internet a servidores internos (sin port forwarding)
 
-### 14.7 Pruebas de Ruteo
+### 13.7 Pruebas de Ruteo
 - [ ] traceroute desde CABA a Jujuy
 - [ ] traceroute desde CABA a Catamarca
 - [ ] traceroute desde Jujuy a Catamarca
 - [ ] traceroute desde red interna a Internet
 
-### 14.8 Pruebas de ACLs
+### 13.8 Pruebas de ACLs
 - [ ] Verificar que ACLs bloqueen tráfico no permitido
 - [ ] Verificar que ACLs permitan tráfico autorizado
 
 ---
 
-## FASE 15: DOCUMENTACIÓN
+## FASE 14: DOCUMENTACIÓN
 
-### 15.1 Tabla de Direccionamiento IP
+### 14.1 Tabla de Direccionamiento IP
 - [ ] Documentar todas las subnets utilizadas
 - [ ] Documentar rangos de IPs para cada VLAN
 - [ ] Documentar IPs de gateways
 - [ ] Documentar IPs de servidores
 
-### 15.2 Tabla de VLANs
+### 14.2 Tabla de VLANs
 - [ ] Documentar ID de cada VLAN
 - [ ] Documentar nombre de cada VLAN
 - [ ] Documentar rango de IPs asociado
 - [ ] Documentar puertos asignados
 
-### 15.3 Tabla de Ruteo Estático
+### 14.3 Tabla de Ruteo Estático
 - [ ] Documentar todas las rutas estáticas configuradas
 - [ ] Documentar destino, máscara, siguiente salto
 - [ ] Documentar en qué router está configurada
 
-### 15.4 Tabla de DHCP Pools
+### 14.4 Tabla de DHCP Pools
 - [ ] Documentar nombre de cada pool
 - [ ] Documentar rango de IPs
 - [ ] Documentar gateway y DNS
 - [ ] Documentar exclusiones
 
-### 15.5 Tabla de DNS Records
+### 14.5 Tabla de DNS Records
 - [ ] Documentar registros A creados
 - [ ] Documentar registros MX
 - [ ] Documentar registros NS
 - [ ] Documentar registros CNAME
 
-### 15.6 Diagrama de Topología
+### 14.6 Diagrama de Topología
 - [ ] Generar diagrama completo de la red
 - [ ] Incluir todas las IPs y interfaces
 - [ ] Incluir VLANs y trunks
 - [ ] Incluir conexiones WAN
 
-### 15.7 Informe Técnico
+### 14.7 Informe Técnico
 - [ ] Describir arquitectura de red
 - [ ] Describir servicios implementados
 - [ ] Describir configuración de seguridad
@@ -435,27 +415,27 @@
 
 ---
 
-## FASE 16: VALIDACIÓN FINAL
+## FASE 15: VALIDACIÓN FINAL
 
-### 16.1 Validación de Consigna
+### 15.1 Validación de Consigna
 - [ ] Verificar que se cumplan todos los requisitos de la consigna
 - [ ] Verificar que todas las sedes estén implementadas
 - [ ] Verificar que todos los servicios estén funcionando
 - [ ] Verificar que la documentación esté completa
 
-### 16.2 Validación de Funcionalidad
+### 15.2 Validación de Funcionalidad
 - [ ] Ejecutar todas las pruebas de conectividad
 - [ ] Verificar que no haya errores en validación del proyecto
 - [ ] Verificar que no haya conflictos de IP
 - [ ] Verificar que no haya puertos duplicados
 
-### 16.3 Validación de Documentación
+### 15.3 Validación de Documentación
 - [ ] Revisar que todas las tablas estén completas
 - [ ] Revisar que el diagrama sea claro y completo
 - [ ] Revisar que el informe técnico sea coherente
 - [ ] Verificar ortografía y formato
 
-### 16.4 Preparación para Entrega
+### 15.4 Preparación para Entrega
 - [ ] Guardar proyecto final
 - [ ] Hacer backup del .pkt
 - [ ] Exportar documentación a PDF
