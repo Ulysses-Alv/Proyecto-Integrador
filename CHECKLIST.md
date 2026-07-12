@@ -8,20 +8,13 @@
 ## FASE 1: INFRAESTRUCTURA FÍSICA Y TOPOLOGÍA
 
 ### 1.1 Sede CABA (172.29.0.0/23)
-- [ ] **Edificio Principal**
+- [ ] **Edificio**
   - [X] Router CABA (conectado a switches de piso, enlaces de fibra a sedes y serial al ISP)
   - [X] Switches de piso (uno por piso con departamentos)
-  - [ ] PCs por departamento (configurados con IP estática o DHCP)
+  - [X] PCs por departamento (configurados con IP estática o DHCP)
   - [ ] Access Points inalámbricos (configurados con SSID y WPA2)
   - [ ] IP Phones (configurados)
   - [ ] Printers (configurados)
-
-- [ ] **Edificio Secundario**
-  - [X] Switches de piso
-  - [ ] PCs por departamento
-  - [ ] Access Points inalámbricos
-  - [ ] IP Phones
-  - [ ] Printers
 
 - [ ] **Conexión entre edificios CABA**
   - [X] Fibra óptica configurada entre edificios
@@ -37,13 +30,13 @@
 - [X] Conexión WAN a CABA (Fibra óptica Gigabit)
 
 ### 1.3 Sede Catamarca (192.168.145.64/26)
-- [ ] Router Catamarca
-- [ ] Switches de piso
-- [ ] PCs por departamento
+- [X] Router Catamarca
+- [X] Switches de piso
+- [X] PCs por departamento
 - [ ] Access Points inalámbricos
-- [ ] IP Phones
-- [ ] Printers
-- [ ] Conexión WAN a CABA (Fibra óptica Gigabit)
+- [X] IP Phones
+- [] Printers
+- [X] Conexión WAN a CABA (Fibra óptica Gigabit)
 
 ### 1.4 Segmento Público / Internet
 - [ ] Router Internet (ISP)
@@ -157,33 +150,33 @@
 - [X] Configurar interfaz outside (puerto serial hacia Internet)
 - [X] Crear ACL para redes internas permitidas (172.29.0.0/23 y 192.168.145.0/24)
 - [X] Configurar NAT overload (PAT) asociando la ACL con la IP pública del puerto serial
-- [ ] Configurar NAT estático para el Servidor Web Principal (IP interna -> IP pública del bloque asignado)
-- [ ] Configurar NAT estático para el Servidor de Correo (IP interna -> IP pública)
-- [ ] Verificar traducción NAT desde redes internas a Internet
+- [X] Configurar NAT estático para el Servidor Web Principal (IP interna -> IP pública del bloque asignado)
+- [X] Configurar NAT estático para el Servidor de Correo (IP interna -> IP pública)
+- [] Verificar traducción NAT desde redes internas a Internet
 
 ---
 
 ## FASE 7: SERVICIOS DHCP
 
 ### 7.1 DHCP Server CABA (Centralizado en IP 172.29.0.70/23)
-- [ ] Habilitar servicio DHCP en el servidor de CABA
-- [ ] Crear pool para cada VLAN de CABA (Administración, Logística, Gerencia, Sistemas)
-- [ ] Configurar gateway por defecto y DNS server en cada pool de CABA
-- [ ] Excluir IPs de servidores y de interfaces de routers en cada subred
+- [X] Habilitar servicio DHCP en el servidor de CABA
+- [X] Crear pool para cada VLAN de CABA (Administración, Logística, Gerencia, Sistemas)
+- [X] Configurar gateway por defecto y DNS server en cada pool de CABA
+- [X] Excluir IPs de servidores y de interfaces de routers en cada subred
 
 ### 7.2 DHCP en Sede Jujuy (Único segmento)
-- [ ] Configurar pool para Jujuy (en servidor DHCP CABA o localmente en Router Jujuy)
-- [ ] Configurar gateway por defecto (192.168.145.1) y DNS en el pool
+- [X] Configurar pool para Jujuy (en servidor DHCP CABA o localmente en Router Jujuy)
+- [X] Configurar gateway por defecto (192.168.145.1) y DNS en el pool
 
 ### 7.3 DHCP en Sede Catamarca (Único segmento)
-- [ ] Configurar pool para Catamarca (en servidor DHCP CABA o localmente en Router Catamarca)
-- [ ] Configurar gateway por defecto (192.168.145.65) y DNS en el pool
+- [X] Configurar pool para Catamarca (en servidor DHCP CABA o localmente en Router Catamarca)
+- [X] Configurar gateway por defecto (192.168.145.65) y DNS en el pool
 
 ### 7.4 DHCP Relay (Si se centraliza el servicio en el servidor DHCP CABA)
 - [X] Configurar ip helper-address en subinterfaces de Router CABA (si el servidor está en VLAN Sistemas)
-- [ ] Configurar ip helper-address en la interfaz LAN de Router Jujuy apuntando a la IP 172.29.0.70
-- [ ] Configurar ip helper-address en la interfaz LAN de Router Catamarca apuntando a la IP 172.29.0.70
-- [ ] Verificar asignación automática de IPs en todas las sedes
+- [X] Configurar ip helper-address en la interfaz LAN de Router Jujuy apuntando a la IP 172.29.0.70
+- [X] Configurar ip helper-address en la interfaz LAN de Router Catamarca apuntando a la IP 172.29.0.70
+- [X] Verificar asignación automática de IPs en todas las sedes
 
 ---
 

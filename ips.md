@@ -11,7 +11,9 @@ A continuación se detalla la asignación de direcciones IP estáticas (tanto in
 | DNS Primario Público | 172.29.0.4 | 200.45.110.130 |
 | DNS Secundario Público | 172.29.0.5 | 200.45.110.131 |
 | Server Correo | 172.29.0.11 | 200.45.110.132 |
-| Web Logística y Transporte | 172.29.0.6 | 200.45.110.133 |
+| Web Logística y Transporte | 192.168.145.2 | 200.45.110.133 |
+| DNS Primario Logistica | 192.168.145.3 | 200.45.110.134 |
+| DNS Secundario Logistica | 192.168.145.4 | 200.45.110.135 |
 | Web Intranet Administración | 172.29.0.8 | N/A |
 | Servidor DHCP | 172.29.0.12 | N/A |
 | DNS Local Resolver | 172.29.0.13 | N/A |
